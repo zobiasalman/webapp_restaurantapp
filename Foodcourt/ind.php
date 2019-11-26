@@ -4,6 +4,7 @@
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -26,16 +27,16 @@
                 <h2 class="title">Food On The Go</h2>
             </header>
 
-<?php
+ <?php
 
-$query = "select * from restaurant";
+$query = "select * from restaurant  ";
 
 mysqli_query($db, $query) or die('Error querying database.');
 
 $result = mysqli_query($db, $query);
-$row = mysqli_fetch_array($result);
+
 ?>
-        </section>
+   </section>
         <section class="navigation-slider-section ">
             <button class="close-navigation-slider">X</button> 
             <section class = "nav-link-container">
@@ -104,23 +105,54 @@ $row = mysqli_fetch_array($result);
 
             
             <section id="restaurants">
+<table align = "center" border = "1px" style="width:600px; line-height:40px;">
+<tr>
+        <th colspan ="4"> <h2 class="menu-title">Restaurants</h2></th>
+</tr>
                        
-                              <p> <li><a class="nav-links" href="Ginsoy.php">Ginsoy</a></li></p>
-  <?php
+<section class="tabs-container">
+    <section class="tabs">
+ <t>
+               <th>  <button class="tabHeader active-tab" data-tab = "5">RestaurantID</button> </th>
+               <th>  <button class="tabHeader" data-tab = "6" name = "restmenu">RestaurantName</button> </th>
+ </section>
+</t>
 
-while ($row = mysqli_fetch_array($result)) {
-    ?>
-    <?php echo $row['id']; ?>
-    <?php echo $row['name']; ?>
 
-    <?php
-   }
-   ?>
-                                
+        </section>
+                </section>
+
+ <?php
+
+    while ($row = mysqli_fetch_array($result)) {
+        ?>
+
+        <tr>
+        <td><?php echo $row['restaurantID']; ?></td>
+        <td><a href = "Restmenu.php"><?php echo $row['RestaurantName']; ?></a></td> 
+        </tr>  
+
+<?php  
+     //if(isset($_POST['restmenu']))
+   /*  {
+
+    $restaurantID = $_GET['restaurantID'];
+    $query2 = "Select * from 'menu' where restaurantID = '$restaurantID' ";
+    mysqli_query($db, $query2) or die('Error querying database.');
+
+    $result2 = mysqli_query($db, $query2);
+
+ } */  
+ }
+    
+  ?>
+
+
+ 
+  
+ </table>                          
                        
     
-                    </section>
-                </section>
     
 
 
