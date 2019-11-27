@@ -16,12 +16,24 @@
 <a href="ind.php" class="Home">Go to Home</a>
 
 <?php
+  if(isset($_POST['restmenu']))
+  {
 
+ $restaurantID = $_POST['restaurantID'];
+ mysqli_query($db, "Select * from 'menu' where restaurantID = '$restaurantID' ");
+ //mysqli_query($db, $query) or die('Error querying database.');
+
+ 
+
+} 
+$result = mysqli_query($db, "Select * from menu");
+
+/*
 $query= "Select * from menu";
 
 mysqli_query($db, $query) or die('Error querying database.');
 
-$result = mysqli_query($db, $query);
+$result = mysqli_query($db, $query); */
 
 ?>
 

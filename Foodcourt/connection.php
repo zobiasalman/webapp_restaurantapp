@@ -114,7 +114,7 @@ $result = mysqli_query($db, $query);
     <section class="tabs">
  <t>
                <th>  <button class="tabHeader active-tab" data-tab = "5">RestaurantID</button> </th>
-               <th>  <button class="tabHeader" data-tab = "6" >RestaurantName</button> </th>
+               <th>  <button class="tabHeader" data-tab = "6" name = "restmenu">RestaurantName</button> </th>
  </section>
 </t>
 
@@ -129,21 +129,26 @@ $result = mysqli_query($db, $query);
 
         <tr>
         <td><?php echo $row['restaurantID']; ?></td>
-        <td><a href = "Restmenu.php" name = "restmenu"><?php echo $row['RestaurantName']; ?></a></td> 
+        <td><button class="tabHeader" data-tab = "6"  href="RestMenu.php" ><?php echo $row['RestaurantName'] ; 
+        
+      /*  if(isset($_POST['restmenu']))
+        {
+   
+       $restaurantID = $_POST['restaurantID'];
+       $query = "Select * from 'menu' where restaurantID = '$restaurantID' ";
+       mysqli_query($db, $query) or die('Error querying database.');
+   
+       $result = mysqli_query($db, $query);
+       
+   
+    }  */
+        ?></button> </td> 
         </tr>  
 
+
 <?php  
-   /* if(isset($_GET['restmenu']))
-     {
 
-    $restaurantID = $_GET['restaurantID'];
-    $query2 = "Select * from 'menu' where restaurantID = '$restaurantID' ";
-    mysqli_query($db, $query2) or die('Error querying database.');
-
-    $result2 = mysqli_query($db, $query2);
-    header('location: Restmenu.php');
-
- }  */
+ 
  }
     
   ?>
