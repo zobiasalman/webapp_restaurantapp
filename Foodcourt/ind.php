@@ -1,4 +1,5 @@
 <?php 
+
  $db = mysqli_connect('localhost','root','','mysql')
 
 ?>
@@ -29,11 +30,6 @@
 
  <?php
 
-$query = "select * from restaurant  ";
-
-mysqli_query($db, $query) or die('Error querying database.');
-
-$result = mysqli_query($db, $query);
 
 ?>
    </section>
@@ -105,34 +101,42 @@ $result = mysqli_query($db, $query);
 
             
             <section id="restaurants">
-<table align = "center" border = "1px" style="width:600px; line-height:40px;">
-<tr>
-        <th colspan ="4"> <h2 class="menu-title">Restaurants</h2></th>
-</tr>
+                   <table align = "center" border = "1px" style="width:600px; line-height:40px;">
+                <tr>
+                <th colspan ="4"> <h2 class="menu-title">Restaurants</h2></th>
+                </tr>
                        
-<section class="tabs-container">
-    <section class="tabs">
- <t>
+            <section class="tabs-container">
+                <section class="tabs">
+            <t>
                <th>  <button class="tabHeader active-tab" data-tab = "5">RestaurantID</button> </th>
                <th>  <button class="tabHeader" data-tab = "6" >RestaurantName</button> </th>
- </section>
-</t>
+            </section>
+            </t>
 
 
         </section>
-                </section>
+            </section>
 
- <?php
+     <?php
+
+    $query = "select * from restaurant  ";
+
+    mysqli_query($db, $query) or die('Error querying database.');
+
+    $result = mysqli_query($db, $query);
+     
 
     while ($row = mysqli_fetch_array($result)) {
         ?>
 
         <tr>
-        <td><?php echo $row['restaurantID']; ?></td>
-        <td><a href = "Restmenu.php" name = "restmenu"><?php echo $row['RestaurantName']; ?></a></td> 
+        <form action = "RestMenu.php" method = "post">
+        <td><input type = "submit"  name = "submit" value = "Click here"><?php echo $row['restaurantID']; ?></td> 
+        <td><?php echo $row['RestaurantName']; ?></td> 
         </tr>  
 
-<?php  
+    <?php  
    /* if(isset($_GET['restmenu']))
      {
 

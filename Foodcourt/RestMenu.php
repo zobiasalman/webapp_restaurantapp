@@ -1,5 +1,14 @@
 <?php 
- $db = mysqli_connect('localhost','root','','mysql')
+function connect(){
+ $db = mysqli_connect('localhost', 'root', '', 'mysql');
+
+ if(!$db){
+         die("failed to connect");
+ }
+
+ return $db;
+
+}
 
 ?>
 
@@ -16,7 +25,10 @@
 <a href="ind.php" class="Home">Go to Home</a>
 
 <?php
-  if(isset($_POST['restmenu']))
+
+
+
+ /* if(isset($_POST['restmenu']))
   {
 
  $restaurantID = $_POST['restaurantID'];
@@ -38,14 +50,16 @@ $result = mysqli_query($db, $query); */
 ?>
 
 
-<section id="menu">
-<table align = "center" border = "1px" style="width:600px; line-height:40px;">
-<tr>
-        <th colspan ="4"> <h2 class="menu-title">Menu</h2></th>
-</tr>
+        <section id="menu">
+                <table align = "center" border = "1px" style="width:600px; line-height:40px;">
+                <tr>
+                <th colspan ="4"> <h2 class="menu-title">Menu</h2></th>
+                </tr>
+        
         <section class="tabs-container">
-            <section class="tabs">
-     <t>
+                <section class="tabs">
+       
+                <t>
         
                <th>  <button class="tabHeader" data-tab = "6">Deals</button> </th>
                <th>  <button class="tabHeader" data-tab = "7">Deal_Price</button> </th>
@@ -59,12 +73,32 @@ $result = mysqli_query($db, $query); */
                <th>  <button class="tabHeader" data-tab = "9">Beverage_Price</button> </th>
 
             </section>
-</t>
+            </t>
 
 <?php
-           while ($row = mysqli_fetch_array($result)) {
+
+//function get_menu(){
+        $db = connect();
+        
+        if(isset($_POST['submit'])){
+
+               $query = "select * from restaurant  ";
+
+                //mysqli_query($db, $query) or die('Error querying database.');
+            
+                $result = mysqli_query($db, $query);
+                $row = mysqli_fetch_array($result); 
+               // $restaurantID=($_POST['restaurantID']);
+                $query2 = "select * From menu where 'menuID' = ".$row["restaurantID"] ;
+        
+                $result2 = mysqli_query($db, $query2);
+        
+                $row = mysqli_fetch_array($result2);
+        
+           while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
+         
           <td><?php echo $row['Deals']; ?></td> 
           <td><?php echo $row['Deal_Price']; ?></td> 
           <td><?php echo $row['Appetizer'] ;?></td> 
@@ -78,6 +112,9 @@ $result = mysqli_query($db, $query); */
           </tr>  
 <?php  
           }
+
+        }
+        $result2 = mysqli_query($db, "select * from menu");
       
     ?>
 </table>
