@@ -39,6 +39,30 @@ function changeTabHeader() {
         case 9:
             changeTabSection(tabnumber);
            break;
+        case 10:
+            changeTabSection(tabnumber);
+           break;
+        case 11:
+            changeTabSection(tabnumber);
+           break;
+        case 12:
+            changeTabSection(tabnumber);
+           break;
+        case 13:
+            changeTabSection(tabnumber);
+           break;
+        case 14:
+            changeTabSection(tabnumber);
+           break;
+        case 15:
+            changeTabSection(tabnumber);
+           break;
+        case 16:
+            changeTabSection(tabnumber);
+           break;
+        case 17:
+            changeTabSection(tabnumber);
+           break;
         default:
            break;
     

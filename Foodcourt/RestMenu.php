@@ -10,7 +10,8 @@ function connect(){
 
 }
 
-?>
+    ?>
+
 
 
 <html>
@@ -61,9 +62,10 @@ $result = mysqli_query($db, $query); */
                 <section class="tabs">
        
                 <t>
-        
+               <th>  <button class="tabHeader" data-tab = "6">menuID</button> </th>
                <th>  <button class="tabHeader" data-tab = "6">Deals</button> </th>
                <th>  <button class="tabHeader" data-tab = "7">Deal_Price</button> </th>
+               <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
                <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
                
 
@@ -95,9 +97,15 @@ $result = mysqli_query($db, $query); */
           ?>
           <tr>
          
-          <td><?php echo $row['Deals']; ?></td> 
-          <td><?php echo $row['Deal_Price']; ?></td> 
-          <td><button class = "button" >Add to Cart</button></td>
+         
+          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
+          
+          <td><?php echo $row["Deals"]; ?></td> 
+          <td><?php echo $row["Deal_Price"]; ?></td> 
+          <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
+          <input type="hidden" name="hidden_deal" value=" <?php echo $row['Deals']; ?>" >
+          <input type="hidden" name="hidden_dealprice" value=" <?php echo $row['Deal_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -106,9 +114,33 @@ $result = mysqli_query($db, $query); */
       
     ?>
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <t>
         <th>  <button class="tabHeader" data-tab = "8">Appetizer</button> </th>
         <th>  <button class="tabHeader" data-tab = "9">Appetizer_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
     </t>
 
@@ -128,7 +160,10 @@ $result = mysqli_query($db, $query); */
           <tr>
           <td><?php echo $row['Appetizer'] ;?></td> 
           <td><?php echo $row['Appetizer_Price'] ;?></td> 
-          <td><button class = "button" >Add to Cart</button></td>
+          <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
+          <input type="hidden" name="hidden_name" value=" <?php echo $row['Appetizer']; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row['Appetizer_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -142,6 +177,7 @@ $result = mysqli_query($db, $query); */
     <t>
         <th>  <button class="tabHeader" data-tab = "10">MainCourse</button> </th>
         <th>  <button class="tabHeader" data-tab = "11">MainCourse_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
     </t>
 
@@ -161,7 +197,10 @@ $result = mysqli_query($db, $query); */
           <tr>
           <td><?php echo $row['MainCourse'] ;?></td> 
           <td><?php echo $row['MainCourse_Price']; ?></td>
-          <td><button class = "button" >Add to Cart</button></td>
+          <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
+          <input type="hidden" name="hidden_name" value=" <?php echo $row['MainCourse']; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row['MainCourse_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -175,6 +214,7 @@ $result = mysqli_query($db, $query); */
     <t>
         <th>  <button class="tabHeader" data-tab = "12">Desserts</button> </th>
         <th>  <button class="tabHeader" data-tab = "13">Desserts_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
     </t>
 
@@ -194,7 +234,10 @@ $result = mysqli_query($db, $query); */
           <tr>
           <td><?php echo $row['Desserts'];?></td> 
           <td><?php echo $row['Desserts_Price']; ?></td> 
-          <td><button class = "button" >Add to Cart</button></td>
+          <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
+          <input type="hidden" name="hidden_name" value=" <?php echo $row['Desserts']; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row['Desserts_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -207,6 +250,7 @@ $result = mysqli_query($db, $query); */
      <t>
         <th>  <button class="tabHeader" data-tab = "14">Beverages</button> </th>
         <th>  <button class="tabHeader" data-tab = "15">Beverage_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
     </t>
 
@@ -226,7 +270,10 @@ $result = mysqli_query($db, $query); */
           <tr>
           <td><?php echo $row['Beverages']; ?></td> 
           <td><?php echo $row['Beverage_Price']; ?> </td>
-          <td><button class = "button" >Add to Cart</button></td>
+          <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
+          <input type="hidden" name="hidden_name" value=" <?php echo $row['Beverages']; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row['Beverage_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -238,6 +285,7 @@ $result = mysqli_query($db, $query); */
 
 </table>
 </div>
+
     
 
 <script src="main.js"></script>

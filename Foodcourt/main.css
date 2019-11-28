@@ -141,6 +141,22 @@ h2 {
 
 }
 
+#cart{
+    
+    background-size: cover;
+    
+    background-color: blue;
+
+}
+
+.cart-title{
+    color: #d0d3d4;
+    text-align: center;
+    padding: 25px;
+    font-size: 2em;
+
+}
+
 table, th, td {
     font-size: 1.1em;
     border: 1px solid white;
@@ -150,7 +166,7 @@ table, th, td {
     
 }
 
-.button {
+b{
     background-color:orchid;
     border: none;
     color: white;
