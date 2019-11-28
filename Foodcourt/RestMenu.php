@@ -64,14 +64,8 @@ $result = mysqli_query($db, $query); */
         
                <th>  <button class="tabHeader" data-tab = "6">Deals</button> </th>
                <th>  <button class="tabHeader" data-tab = "7">Deal_Price</button> </th>
-               <th>  <button class="tabHeader" data-tab = "8">Appetizer</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">Appetizer_Price</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">MainCourse</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">MainCourse_Price</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">Desserts</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">Desserts_Price</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">Beverages</button> </th>
-               <th>  <button class="tabHeader" data-tab = "9">Beverage_Price</button> </th>
+               <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
+               
 
             </section>
             </t>
@@ -103,22 +97,145 @@ $result = mysqli_query($db, $query); */
          
           <td><?php echo $row['Deals']; ?></td> 
           <td><?php echo $row['Deal_Price']; ?></td> 
-          <td><?php echo $row['Appetizer'] ;?></td> 
-          <td><?php echo $row['Appetizer_Price'] ;?></td> 
-          <td><?php echo $row['MainCourse'] ;?></td> 
-          <td><?php echo $row['MainCourse_Price']; ?></td> 
-          <td><?php echo $row['Desserts'];?></td> 
-          <td><?php echo $row['Desserts_Price']; ?></td> 
-          <td><?php echo $row['Beverages']; ?></td> 
-          <td><?php echo $row['Beverage_Price']; ?> </td>
+          <td><button class = "button" >Add to Cart</button></td>
           </tr>  
 <?php  
           }
 
         }
-        $result2 = mysqli_query($db, "select * from menu");
       
     ?>
+
+    <t>
+        <th>  <button class="tabHeader" data-tab = "8">Appetizer</button> </th>
+        <th>  <button class="tabHeader" data-tab = "9">Appetizer_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
+    </t>
+
+
+<?php
+
+        $db = connect();
+        
+        if(isset($_POST['submit'])){
+
+                $query2 = "select * From menu ";
+                
+                $result2 = mysqli_query($db, $query2);
+        
+           while ($row = mysqli_fetch_array($result2)) {
+          ?>
+          <tr>
+          <td><?php echo $row['Appetizer'] ;?></td> 
+          <td><?php echo $row['Appetizer_Price'] ;?></td> 
+          <td><button class = "button" >Add to Cart</button></td>
+          </tr>  
+<?php  
+          }
+
+        }
+      
+    ?>
+
+
+
+    <t>
+        <th>  <button class="tabHeader" data-tab = "10">MainCourse</button> </th>
+        <th>  <button class="tabHeader" data-tab = "11">MainCourse_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
+    </t>
+
+
+<?php
+
+        $db = connect();
+        
+        if(isset($_POST['submit'])){
+
+                $query2 = "select * From menu ";
+                
+                $result2 = mysqli_query($db, $query2);
+        
+           while ($row = mysqli_fetch_array($result2)) {
+          ?>
+          <tr>
+          <td><?php echo $row['MainCourse'] ;?></td> 
+          <td><?php echo $row['MainCourse_Price']; ?></td>
+          <td><button class = "button" >Add to Cart</button></td>
+          </tr>  
+<?php  
+          }
+
+        }
+      
+    ?>
+    
+
+
+    <t>
+        <th>  <button class="tabHeader" data-tab = "12">Desserts</button> </th>
+        <th>  <button class="tabHeader" data-tab = "13">Desserts_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
+    </t>
+
+
+<?php
+
+        $db = connect();
+        
+        if(isset($_POST['submit'])){
+
+                $query2 = "select * From menu ";
+                
+                $result2 = mysqli_query($db, $query2);
+        
+           while ($row = mysqli_fetch_array($result2)) {
+          ?>
+          <tr>
+          <td><?php echo $row['Desserts'];?></td> 
+          <td><?php echo $row['Desserts_Price']; ?></td> 
+          <td><button class = "button" >Add to Cart</button></td>
+          </tr>  
+<?php  
+          }
+
+        }
+      
+    ?>
+
+
+     <t>
+        <th>  <button class="tabHeader" data-tab = "14">Beverages</button> </th>
+        <th>  <button class="tabHeader" data-tab = "15">Beverage_Price</button> </th>
+        <th>  <button class="tabHeader" data-tab = "16">Action</button> </th>
+    </t>
+
+
+<?php
+
+        $db = connect();
+        
+        if(isset($_POST['submit'])){
+
+                $query2 = "select * From menu ";
+                
+                $result2 = mysqli_query($db, $query2);
+        
+           while ($row = mysqli_fetch_array($result2)) {
+          ?>
+          <tr>
+          <td><?php echo $row['Beverages']; ?></td> 
+          <td><?php echo $row['Beverage_Price']; ?> </td>
+          <td><button class = "button" >Add to Cart</button></td>
+          </tr>  
+<?php  
+          }
+
+        }
+      
+    ?>
+
+
 </table>
 </div>
     
