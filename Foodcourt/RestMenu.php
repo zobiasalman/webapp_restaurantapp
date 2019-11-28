@@ -62,7 +62,7 @@ $result = mysqli_query($db, $query); */
                 <section class="tabs">
        
                 <t>
-               <th>  <button class="tabHeader" data-tab = "6">menuID</button> </th>
+               
                <th>  <button class="tabHeader" data-tab = "6">Deals</button> </th>
                <th>  <button class="tabHeader" data-tab = "7">Deal_Price</button> </th>
                <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
@@ -104,8 +104,8 @@ $result = mysqli_query($db, $query); */
           <td><?php echo $row["Deal_Price"]; ?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_deal" value=" <?php echo $row['Deals']; ?>" >
-          <input type="hidden" name="hidden_dealprice" value=" <?php echo $row['Deal_Price']; ?>" >
+          <input type="hidden" name="hidden_name" value=" <?php echo $row['Deals']; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row['Deal_Price']; ?>" >
           </tr>  
 <?php  
           }
@@ -116,28 +116,8 @@ $result = mysqli_query($db, $query); */
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <t>
+        
         <th>  <button class="tabHeader" data-tab = "8">Appetizer</button> </th>
         <th>  <button class="tabHeader" data-tab = "9">Appetizer_Price</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
@@ -158,6 +138,7 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
+          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
           <td><?php echo $row['Appetizer'] ;?></td> 
           <td><?php echo $row['Appetizer_Price'] ;?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
@@ -175,6 +156,7 @@ $result = mysqli_query($db, $query); */
 
 
     <t>
+          
         <th>  <button class="tabHeader" data-tab = "10">MainCourse</button> </th>
         <th>  <button class="tabHeader" data-tab = "11">MainCourse_Price</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
@@ -195,6 +177,7 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
+          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
           <td><?php echo $row['MainCourse'] ;?></td> 
           <td><?php echo $row['MainCourse_Price']; ?></td>
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
@@ -212,6 +195,7 @@ $result = mysqli_query($db, $query); */
 
 
     <t>
+        
         <th>  <button class="tabHeader" data-tab = "12">Desserts</button> </th>
         <th>  <button class="tabHeader" data-tab = "13">Desserts_Price</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
@@ -232,6 +216,7 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
+          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
           <td><?php echo $row['Desserts'];?></td> 
           <td><?php echo $row['Desserts_Price']; ?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
@@ -247,7 +232,8 @@ $result = mysqli_query($db, $query); */
     ?>
 
 
-     <t>
+     <t> 
+        
         <th>  <button class="tabHeader" data-tab = "14">Beverages</button> </th>
         <th>  <button class="tabHeader" data-tab = "15">Beverage_Price</button> </th>
         <th>  <button class="tabHeader" data-tab = "16">Quantity</button> </th>
@@ -268,6 +254,7 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
+          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
           <td><?php echo $row['Beverages']; ?></td> 
           <td><?php echo $row['Beverage_Price']; ?> </td>
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>

@@ -19,8 +19,8 @@ if(isset($_POST["cart"])){
             $count = count($_SESSION["menu_cart"]);
             $item_array= array(
                 'menuID' => $_GET["menuID"],
-                'Deal' => $_POST["hidden_deal"],
-                'Deal_Price' => $_POST["hidden_dealprice"],
+                'name' => $_POST["hidden_name"],
+                'price' => $_POST["hidden_price"],
                 'quantity' => $_POST["quantity"]
         
             );
@@ -37,8 +37,8 @@ if(isset($_POST["cart"])){
     else{
     $item_array= array(
         'menuID' => $_GET["menuID"],
-        'Deal' => $_POST["hidden_deal"],
-        'Deal_Price' => $_POST["hidden_dealprice"],
+        'name' => $_POST["hidden_name"],
+        'price' => $_POST["hidden_price"],
         'quantity' => $_POST["quantity"]
 
     );
@@ -98,15 +98,15 @@ if(isset($_GET["action"])){
                           ?>  
 
                 <tr>  
-                        <td><?php echo $values["Deal"]; ?></td>  
+                        <td><?php echo $values["name"]; ?></td>  
                         <td><?php echo $values["quantity"]; ?></td>  
-                        <td>$ <?php echo $values["Deal_Price"]; ?></td>  
-                        <td>$ <?php echo number_format($values["quantity"] * $values["Deal_Price"], 2); ?></td>  
-                        <td><a href="cart.php?action=delete&menuID<?php echo $values["menuID"]; ?>"><span class="text-danger">Remove</span></a></td>  
+                        <td>$ <?php echo $values["price"]; ?></td>  
+                        <td>$ <?php echo number_format($values["quantity"] * $values["price"], 2); ?></td>  
+                        <td><b href="cart.php?action=delete&menuID<?php echo $values["menuID"]; ?>"><span class="text-danger">Remove</span></b></td>  
                           </tr>  
 
                           <?php  
-                                    $total = $total + ($values["quantity"] * $values["Deal_Price"]);  
+                                    $total = $total + ($values["quantity"] * $values["price"]);  
                                }  
                           ?>  
                           <tr>  
