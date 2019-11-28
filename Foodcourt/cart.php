@@ -102,7 +102,7 @@ if(isset($_GET["action"])){
                         <td><?php echo $values["quantity"]; ?></td>  
                         <td>$ <?php echo $values["price"]; ?></td>  
                         <td>$ <?php echo number_format($values["quantity"] * $values["price"], 2); ?></td>  
-                        <td><b href="cart.php?action=delete&menuID<?php echo $values["menuID"]; ?>"><span class="text-danger">Remove</span></b></td>  
+                        <td><b><a href="cart.php?action=delete&menuID<?php echo $values["menuID"]; ?>"><span class="text-danger">Remove</span></a></b></td>  
                           </tr>  
 
                           <?php  
