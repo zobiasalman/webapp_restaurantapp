@@ -51,7 +51,8 @@ $result = mysqli_query($db, $query); */
 
 
         <section id="menu">
-                <table align = "center" border = "1px" style="width:600px; line-height:40px;">
+        <div style="overflow-x:auto;">
+                <table align = "center" style="width:100%; height:100%;">
                 <tr>
                 <th colspan ="4"> <h2 class="menu-title">Menu</h2></th>
                 </tr>
@@ -82,18 +83,19 @@ $result = mysqli_query($db, $query); */
         
         if(isset($_POST['submit'])){
 
-               $query = "select * from restaurant  ";
+             /*  $query = "select * from restaurant  ";
 
                 //mysqli_query($db, $query) or die('Error querying database.');
             
                 $result = mysqli_query($db, $query);
                 $row = mysqli_fetch_array($result); 
-               // $restaurantID=($_POST['restaurantID']);
-                $query2 = "select * From menu where 'menuID' = ".$row["restaurantID"] ;
+               // $restaurantID=($_POST['restaurantID']); */
+                $query2 = "select * From menu ";
+                //where 'menuID' = ".$row["restaurantID"] ;
         
                 $result2 = mysqli_query($db, $query2);
         
-                $row = mysqli_fetch_array($result2);
+             //   $row = mysqli_fetch_array($result2);
         
            while ($row = mysqli_fetch_array($result2)) {
           ?>
@@ -118,6 +120,7 @@ $result = mysqli_query($db, $query); */
       
     ?>
 </table>
+</div>
     
 
 <script src="main.js"></script>

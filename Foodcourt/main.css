@@ -141,9 +141,12 @@ h2 {
 
 }
 
-td {
+table, th, td {
     font-size: 1.1em;
+    border: 1px solid white;
     color: #eee;
+    
+    padding: 25px;
     
 }
 
