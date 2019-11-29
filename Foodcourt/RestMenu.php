@@ -1,4 +1,5 @@
 <?php 
+//session_start();
 function connect(){
  $db = mysqli_connect('localhost', 'root', '', 'mysql');
 
@@ -98,15 +99,16 @@ $result = mysqli_query($db, $query); */
           <tr>
          
          
-          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
+          <form method = "post" action = "cart.php?action=add&menuID= <?php echo $row["menuID"]; ?>" >
           
           <td><?php echo $row["Deals"]; ?></td> 
           <td><?php echo $row["Deal_Price"]; ?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          
+          <input type="hidden" name="hidden_name" value=" <?php echo $row["Deals"]; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row["Deal_Price"]; ?>" >
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_name" value=" <?php echo $row['Deals']; ?>" >
-          <input type="hidden" name="hidden_price" value=" <?php echo $row['Deal_Price']; ?>" >
-          </tr>  
+        </tr>  
 <?php  
           }
 
@@ -138,14 +140,15 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
-          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
-          <td><?php echo $row['Appetizer'] ;?></td> 
-          <td><?php echo $row['Appetizer_Price'] ;?></td> 
+          <form method = "post" action = "cart.php?action=add&menuID= <?php echo $row["menuID"]; ?>" >
+          <td><?php echo $row["Appetizer"] ;?></td> 
+          <td><?php echo $row["Appetizer_Price"] ;?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          
+          <input type="hidden" name="hidden_name" value=" <?php echo $row["Appetizer"]; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row["Appetizer_Price"]; ?>" >
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_name" value=" <?php echo $row['Appetizer']; ?>" >
-          <input type="hidden" name="hidden_price" value=" <?php echo $row['Appetizer_Price']; ?>" >
-          </tr>  
+        </tr>  
 <?php  
           }
 
@@ -177,14 +180,15 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
-          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
-          <td><?php echo $row['MainCourse'] ;?></td> 
-          <td><?php echo $row['MainCourse_Price']; ?></td>
+          <form method = "post" action = "cart.php?action=add&menuID= <?php echo $row["menuID"]; ?>" >
+          <td><?php echo $row["MainCourse"] ;?></td> 
+          <td><?php echo $row["MainCourse_Price"]; ?></td>
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          
+          <input type="hidden" name="hidden_name" value=" <?php echo $row["MainCourse"]; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row["MainCourse_Price"]; ?>" >
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_name" value=" <?php echo $row['MainCourse']; ?>" >
-          <input type="hidden" name="hidden_price" value=" <?php echo $row['MainCourse_Price']; ?>" >
-          </tr>  
+        </tr>  
 <?php  
           }
 
@@ -216,14 +220,15 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
-          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
-          <td><?php echo $row['Desserts'];?></td> 
-          <td><?php echo $row['Desserts_Price']; ?></td> 
+          <form method = "post" action = "cart.php?action=add&menuID= <?php echo $row["menuID"]; ?>" >
+          <td><?php echo $row["Desserts"];?></td> 
+          <td><?php echo $row["Desserts_Price"]; ?></td> 
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          
+          <input type="hidden" name="hidden_name" value=" <?php echo $row["Desserts"]; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row["Desserts_Price"]; ?>" >
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_name" value=" <?php echo $row['Desserts']; ?>" >
-          <input type="hidden" name="hidden_price" value=" <?php echo $row['Desserts_Price']; ?>" >
-          </tr>  
+        </tr>  
 <?php  
           }
 
@@ -254,14 +259,15 @@ $result = mysqli_query($db, $query); */
            while ($row = mysqli_fetch_array($result2)) {
           ?>
           <tr>
-          <form method = "post" action = "cart.php?add&menuID= <?php echo $row["menuID"]; ?>" >
-          <td><?php echo $row['Beverages']; ?></td> 
-          <td><?php echo $row['Beverage_Price']; ?> </td>
+          <form method = "post" action = "cart.php?action=add&menuID= <?php echo $row["menuID"]; ?>" >
+          <td><?php echo $row["Beverages"]; ?></td> 
+          <td><?php echo $row["Beverage_Price"]; ?> </td>
           <td><b><input type="text" name="quantity" class="form-control" value="1"></b></td>
+          
+          <input type="hidden" name="hidden_name" value=" <?php echo $row["Beverages"]; ?>" >
+          <input type="hidden" name="hidden_price" value=" <?php echo $row["Beverage_Price"]; ?>" >
           <td><b><input type = "submit"  name = "cart" value = "Add to Cart" ></b></td>
-          <input type="hidden" name="hidden_name" value=" <?php echo $row['Beverages']; ?>" >
-          <input type="hidden" name="hidden_price" value=" <?php echo $row['Beverage_Price']; ?>" >
-          </tr>  
+        </tr>  
 <?php  
           }
 

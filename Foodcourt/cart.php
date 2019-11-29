@@ -1,4 +1,5 @@
 <?php 
+//session_start();
 function connect(){
  $db = mysqli_connect('localhost', 'root', '', 'mysql');
 
@@ -14,11 +15,11 @@ function connect(){
 if(isset($_POST["cart"])){
 
     if(isset($_SESSION["menu_cart"])){
-        $item_array_id = array_column($_SESSION["menu_cart"], "menuID");
+        $item_array_id = array_column($_SESSION["menu_cart"], "ID");
         if(!in_array($_GET["menuID"], $item_array_id)){
             $count = count($_SESSION["menu_cart"]);
             $item_array= array(
-                'menuID' => $_GET["menuID"],
+                'ID' => $_GET["menuID"],
                 'name' => $_POST["hidden_name"],
                 'price' => $_POST["hidden_price"],
                 'quantity' => $_POST["quantity"]
@@ -36,7 +37,7 @@ if(isset($_POST["cart"])){
 
     else{
     $item_array= array(
-        'menuID' => $_GET["menuID"],
+        'ID' => $_GET["menuID"],
         'name' => $_POST["hidden_name"],
         'price' => $_POST["hidden_price"],
         'quantity' => $_POST["quantity"]
@@ -51,9 +52,9 @@ if(isset($_GET["action"])){
         foreach($_SESSION["menu_cart"] as $keys=> $values)
         {
             
-            if($values["menuID"] == $_GET["menuID"])  
+            if($values["ID"] == $_GET["menuID"])  
             {  
-                 unset($_SESSION["shopping_cart"][$keys]);  
+                 unset($_SESSION["menu_cart"][$keys]);  
                  echo '<script>alert("Item Removed")</script>';  
                  echo '<script>window.location="cart.php"</script>';  
             }  
@@ -102,7 +103,7 @@ if(isset($_GET["action"])){
                         <td><?php echo $values["quantity"]; ?></td>  
                         <td>$ <?php echo $values["price"]; ?></td>  
                         <td>$ <?php echo number_format($values["quantity"] * $values["price"], 2); ?></td>  
-                        <td><b><a href="cart.php?action=delete&menuID<?php echo $values["menuID"]; ?>"><span class="text-danger">Remove</span></a></b></td>  
+                        <td><b><a href="cart.php?action=delete&menuID<?php echo $values["ID"]; ?>"><span class="text-danger">Remove</span></a></b></td>  
                           </tr>  
 
                           <?php  

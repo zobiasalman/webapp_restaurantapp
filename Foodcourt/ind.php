@@ -69,6 +69,9 @@
         </section>
             </section>
 
+    
+
+
      <?php
 
     $query = "select * from restaurant  ";
@@ -83,7 +86,7 @@
 
         <tr>
         <form action = "RestMenu.php" method = "post">
-        <td><input type = "submit"  name = "submit" value = "Click here"><?php echo $row['restaurantID']; ?></td> 
+        <td><input type = "submit"  name = "submit" value = "<?php echo $row['restaurantID']; ?>"></td> 
         <td><?php echo $row['RestaurantName']; ?></td> 
         </tr>  
 
